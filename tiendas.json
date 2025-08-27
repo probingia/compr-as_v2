@@ -1,0 +1,10 @@
+[
+    { "id": "1", "nombre": "Mercadona" },
+    { "id": "2", "nombre": "Carrefour" },
+    { "id": "3", "nombre": "Lidl" },
+    { "id": "4", "nombre": "Aldi" },
+    { "id": "5", "nombre": "Dia" },
+    { "id": "6", "nombre": "El Corte Inglés" },
+    { "id": "7", "nombre": "Ahorramás" },
+    { "id": "8", "nombre": "Hipercor" }
+]

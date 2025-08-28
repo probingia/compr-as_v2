@@ -1,68 +1,98 @@
-# Compr-As: Tu Lista de Compras Inteligente
+# Compr-As: Tu Asistente de Compras Inteligente
 
-Compr-As es una aplicación web progresiva (PWA) diseñada para ser una herramienta moderna, rápida y eficiente para gestionar tus listas de la compra. Funciona offline y está pensada para ser intuitiva y fácil de usar.
+![Compr-As Logo](assets/icons/icon-512x512.png) <!-- Asumiendo que existe un logo en esta ruta -->
 
-## ✨ Características Principales
+## Descripción del Proyecto
 
-*   **Gestión Completa de Productos:** Añade, edita, elimina y marca productos como comprados con detalles como cantidad, precio unitario, tienda, categoría, prioridad y notas.
-*   **Clasificación Inteligente:** La aplicación aprende las categorías que asignas a los productos nuevos para auto-clasificarlos en el futuro.
-*   **Autocompletado:** Sugerencias de productos basadas en una lista predefinida y en los productos que has añadido manualmente.
-*   **Panel de Gestión:**
-    *   Gestiona tus propias listas de **Categorías** y **Tiendas**.
-    *   Gestiona la lista de **Autocompletado**, eliminando o editando los productos que ya no necesites.
-*   **Importación y Exportación Avanzada:**
-    *   Exporta tu lista de la compra a formatos **.txt**, **.jpg** o **.pdf**.
-    *   Importa listas de productos desde ficheros **.txt**, con previsualización y selección de los productos a importar.
-*   **Búsqueda y Filtrado:** Filtra tu lista por tienda, prioridad o búsqueda de texto libre.
-*   **Cálculos Automáticos:** La aplicación calcula el coste total de tu compra y el número de productos.
-*   **Interfaz Adaptable (Responsive):** Funciona en cualquier tamaño de pantalla, desde móviles a escritorio.
-*   **Soporte Offline (PWA):** Gracias al Service Worker, la aplicación puede usarse sin conexión a internet una vez ha sido cargada.
+**Compr-As** es una aplicación de lista de compras robusta y flexible, diseñada para ofrecer una experiencia de usuario intuitiva y eficiente. Desarrollada con tecnologías web (HTML, CSS, JavaScript), funciona como una Progressive Web App (PWA) completa, permitiendo su instalación y uso offline. La aplicación se enfoca en la gestión inteligente de productos, categorías y tiendas, con funcionalidades avanzadas de importación/exportación y una interfaz de usuario altamente interactiva.
 
-## 🛠️ Tecnologías Utilizadas
+## Características Principales
 
-*   **Frontend:** HTML5, CSS3, JavaScript (ES6 Modules)
-*   **Framework de UI:** Bootstrap 5
-*   **Librerías Externas:**
-    *   **jsPDF:** para la generación de documentos PDF.
-    *   **html2canvas:** para la generación de imágenes JPG.
-*   **Almacenamiento:** IndexedDB para la persistencia de datos en el navegador.
+*   **PWA Completa:** Instalable y con capacidad offline gracias a un Service Worker dedicado.
+*   **Gestión de Productos:** Añade, edita y elimina productos con detalles como notas y prioridad.
+*   **Importación/Exportación Selectiva:** Control total sobre los datos importados y exportados, con previsualización de productos individuales.
+*   **Exportación a Múltiples Formatos:** Exporta listas a `.txt`, `.jpg` y `.pdf` con diseños personalizables.
+*   **Importación Robusta desde TXT:** Analiza archivos `.txt` inteligentemente, previsualiza resultados y maneja información detallada de productos, ignorando líneas irrelevantes.
+*   **Ordenación Avanzada y Dinámica:** Ordena listas por Categoría, Nombre, Prioridad y Coste (ascendente/descendente), con tooltips dinámicos.
+*   **Gestión Dinámica de Categorías y Tiendas:** Añade y elimina categorías y tiendas en tiempo de ejecución.
+*   **Experiencia de Usuario (UX) Mejorada:**
+    *   Autocompletado inteligente y reconocimiento de voz para añadir productos.
+    *   Filtrado por tienda y búsqueda de texto libre.
+    *   Ajuste dinámico del tamaño de fuente para accesibilidad.
+    *   Panel de totales destacado para mayor claridad.
 
-## 🚀 Cómo Empezar
+## Arquitectura del Proyecto
 
-Simplemente abre el fichero `index.html` en cualquier navegador web moderno.
+El proyecto sigue una arquitectura modular clara, con responsabilidades bien definidas en el directorio `js/`:
 
-No requiere instalación ni un servidor. La aplicación es completamente autocontenida y se ejecuta en el lado del cliente.
+*   `state.js`: Centraliza el estado de la aplicación.
+*   `dom.js`: Abstrae las referencias a elementos del DOM.
+*   `api.js`: Gestiona la persistencia en `localStorage` y la carga de datos iniciales.
+*   `render.js`: Controla toda la renderización y actualización de la UI.
+*   `events.js`: Orquesta todos los eventos y la lógica de interacción del usuario.
+*   `utils.js`: Contiene funciones de utilidad compartidas.
 
-## 📂 Estructura del Proyecto
+## Instalación y Ejecución
 
-```
-/
-├── css/
-│   └── style.css         # Estilos personalizados
-├── js/
-│   ├── api.js            # Carga de datos iniciales y desde DB
-│   ├── app.js            # Punto de entrada principal
-│   ├── confirm.js        # Lógica del modal de confirmación
-│   ├── db.js             # Gestión de la base de datos IndexedDB
-│   ├── dom.js            # Referencias a los elementos del DOM
-│   ├── events.js         # Manejadores de eventos
-│   ├── importParser.js   # Lógica para importar desde .txt
-│   ├── notifications.js  # Sistema de notificaciones
-│   ├── pdfGenerator.js   # Lógica para generar PDFs
-│   ├── render.js         # Funciones que dibujan en el DOM
-│   ├── state.js          # Estado central de la aplicación
-│   └── utils.js          # Funciones de utilidad
-├── libs/                 # Librerías de terceros (Bootstrap, jsPDF, etc.)
-├── index.html            # Fichero principal de la aplicación
-├── productos.json        # Datos iniciales de productos y categorías
-├── tiendas.json          # Datos iniciales de tiendas
-├── manifest.json         # Manifiesto de la PWA
-├── sw.js                 # Service Worker para la funcionalidad offline
-└── README.md             # Este fichero
-```
+Para instalar y ejecutar Compr-As, sigue los siguientes pasos:
 
-## 🔮 Mejoras Futuras
+1.  **Clonar el Repositorio:**
+    ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    cd Compr-As
+    ```
 
-*   Sincronización de datos entre dispositivos a través de un backend.
-*   Notificaciones push para recordatorios.
-*   Internacionalización (traducción a otros idiomas).
+2.  **Abrir con un Servidor Local:**
+    Dado que es una aplicación web estática, puedes abrir `index.html` directamente en tu navegador o, para una mejor experiencia (especialmente con Service Workers y PWA), se recomienda usar un servidor web local. Puedes usar `http-server` de Node.js:
+
+    ```bash
+    # Si no lo tienes instalado globalmente
+    npm install -g http-server
+
+    # Desde la raíz del proyecto
+    http-server .
+    ```
+    Luego, abre tu navegador y navega a `http://localhost:8080` (o el puerto que `http-server` indique).
+
+3.  **Para Desarrollo (Electron/Cordova/Capacitor):**
+    Si este proyecto está configurado para Electron, Cordova o Capacitor, necesitarás seguir los pasos específicos de configuración para cada plataforma. Por lo general, esto implica:
+
+    ```bash
+    # Para Electron (si aplica)
+    npm install
+    npm start
+
+    # Para Cordova/Capacitor (si aplica)
+    npm install
+    npx cap add android # o ios
+    npx cap open android # o ios
+    ```
+    *Nota: Asegúrate de tener Node.js y npm instalados en tu sistema.*
+
+## Uso
+
+Una vez que la aplicación esté en funcionamiento, puedes:
+
+*   Añadir nuevos productos a tu lista de compras.
+*   Organizar productos por categorías y tiendas.
+*   Marcar productos como comprados.
+*   Importar y exportar tus listas para compartirlas o hacer copias de seguridad.
+*   Utilizar las opciones de ordenación y filtrado para gestionar tus compras de manera eficiente.
+
+## Mejoras Futuras (Deuda Técnica Menor)
+
+Aunque la aplicación es muy completa, se han identificado las siguientes áreas para futuras mejoras:
+
+1.  **Notificaciones y Feedback al Usuario:** Reemplazar `alert()` por notificaciones más modernas (toasts/snackbars).
+2.  **Confirmaciones de Usuario:** Añadir diálogos de confirmación para eliminar categorías o tiendas.
+3.  **Guía de Formato de Importación:** Incluir un ícono de ayuda con instrucciones claras y ejemplos para el formato `.txt` de importación.
+4.  **Accesibilidad (A11y):** Realizar una auditoría exhaustiva para asegurar el uso correcto de atributos ARIA, contraste de colores y navegación por teclado.
+5.  **Refinamiento de UI/UX:** Pulir detalles como animaciones sutiles y unificar el estilo de los modales.
+
+## Licencia
+
+Este proyecto está bajo la licencia [MIT](LICENSE). <!-- O la licencia que corresponda -->
+
+---
+
+**Compr-As** - Simplificando tus compras.

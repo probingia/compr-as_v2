@@ -3,10 +3,12 @@ import { cargarEstado, cargarDatosIniciales } from './js/api.js';
 import { render, actualizarLabelPrecio } from './js/render.js';
 import { setupEventListeners } from './js/events.js';
 import { mostrarNotificacion } from './js/notifications.js';
+import { initializeConfirmModal } from './js/confirm.js';
 
 const init = async () => {
     // Primero, inicializamos las referencias del DOM ahora que la página ha cargado.
     initializeDOM();
+    initializeConfirmModal();
 
     console.log('Inicializando Compr-As...');
     dom.loadingOverlay.classList.remove('d-none'); // Show spinner
